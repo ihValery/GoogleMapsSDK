@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import GoogleMaps
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            GoogleMapsView()
+                .ignoresSafeArea()
+        }
     }
 }
 
