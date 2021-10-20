@@ -12,8 +12,11 @@ struct GoogleMapsView: UIViewRepresentable {
     
     func makeUIView(context: Context) -> GMSMapView {
         let camera = GMSCameraPosition.camera(withLatitude: 53.85807006, longitude: 27.46903896, zoom: 14.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+//        let mapID = GMSMapID(identifier: "340338807043cb43")
         
+        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+//        let mapView = GMSMapView.init(frame: CGRect.zero, mapID: mapID, camera: camera)
+
         do {
             if let styleURL = Bundle.main.url(forResource: "mapStyleNight", withExtension: "json") {
                 mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
