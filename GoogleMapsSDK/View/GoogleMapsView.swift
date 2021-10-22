@@ -10,26 +10,28 @@ import GoogleMaps
 
 struct GoogleMapsView: UIViewRepresentable {
     
+    @ObservedObject var locationManager = LocationManager()
+    
     func makeUIView(context: Context) -> GMSMapView {
-        let camera = GMSCameraPosition.camera(withLatitude: 53.85807006, longitude: 27.46903896, zoom: 14.0)
-//        let mapID = GMSMapID(identifier: "340338807043cb43")
-        
+        let camera = GMSCameraPosition.camera(withLatitude: locationManager.latitude, longitude: locationManager.longitude, zoom: 15.0)
         let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-//        let mapView = GMSMapView.init(frame: CGRect.zero, mapID: mapID, camera: camera)
 
         do {
-            if let styleURL = Bundle.main.url(forResource: "mapStyleNight", withExtension: "json") {
+            if let styleURL = Bundle.main.url(forResource: "mapStyle", withExtension: "json") {
                 mapView.mapStyle = try GMSMapStyle(contentsOfFileURL: styleURL)
             } else {
-                NSLog("Файл mapStyleNight.json не найден")
+                NSLog("Файл mapStyle.json не найден")
             }
         } catch {
             NSLog("Не удалось загрузить один или несколько стилей карты. \(error)")
         }
-        
+
+        mapView.isMyLocationEnabled = true
+
         return mapView
     }
     
-    func updateUIView(_ uiView: GMSMapView, context: Context) {
+    func updateUIView(_ mapView: GMSMapView, context: Context) {
+        mapView.animate(toLocation: CLLocationCoordinate2D(latitude: locationManager.latitude, longitude: locationManager.longitude))
     }
 }

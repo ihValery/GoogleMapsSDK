@@ -15,7 +15,8 @@
 		80BD13602720136C000832DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80BD135F2720136C000832DB /* Assets.xcassets */; };
 		80BD13632720136C000832DB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80BD13622720136C000832DB /* Preview Assets.xcassets */; };
 		80BD13A52720253E000832DB /* Cons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BD13A42720253E000832DB /* Cons.swift */; };
-		80FE502427204D8B00BDDCE8 /* mapStyleNight.json in Resources */ = {isa = PBXBuildFile; fileRef = 80FE502327204D8B00BDDCE8 /* mapStyleNight.json */; };
+		80FE502427204D8B00BDDCE8 /* mapStyle.json in Resources */ = {isa = PBXBuildFile; fileRef = 80FE502327204D8B00BDDCE8 /* mapStyle.json */; };
+		80FE50272720748100BDDCE8 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FE50262720748100BDDCE8 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,7 +29,9 @@
 		80BD135F2720136C000832DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80BD13622720136C000832DB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		80BD13A42720253E000832DB /* Cons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cons.swift; sourceTree = "<group>"; };
-		80FE502327204D8B00BDDCE8 /* mapStyleNight.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyleNight.json; sourceTree = "<group>"; };
+		80FE502327204D8B00BDDCE8 /* mapStyle.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mapStyle.json; sourceTree = "<group>"; };
+		80FE50262720748100BDDCE8 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		80FE50282720792000BDDCE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		C84C016AA1F4FE7D63090DA5 /* Pods-GoogleMapsSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoogleMapsSDK.debug.xcconfig"; path = "Target Support Files/Pods-GoogleMapsSDK/Pods-GoogleMapsSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		FA0563290D16F0535FC874E1 /* Pods_GoogleMapsSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoogleMapsSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -74,11 +77,12 @@
 		80BD135A27201369000832DB /* GoogleMapsSDK */ = {
 			isa = PBXGroup;
 			children = (
+				80FE50282720792000BDDCE8 /* Info.plist */,
 				80BD135B27201369000832DB /* GoogleMapsSDKApp.swift */,
-				802076C227203E9500C90822 /* AppDelegate.swift */,
 				80BD13692720193D000832DB /* View */,
+				80FE50252720745700BDDCE8 /* ViewModel */,
 				80BD13A42720253E000832DB /* Cons.swift */,
-				80FE502327204D8B00BDDCE8 /* mapStyleNight.json */,
+				80FE502327204D8B00BDDCE8 /* mapStyle.json */,
 				80BD135F2720136C000832DB /* Assets.xcassets */,
 				80BD13612720136C000832DB /* Preview Content */,
 			);
@@ -100,6 +104,15 @@
 				802076C427203F9200C90822 /* GoogleMapsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		80FE50252720745700BDDCE8 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				802076C227203E9500C90822 /* AppDelegate.swift */,
+				80FE50262720748100BDDCE8 /* LocationManager.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		B069DE53FB1A905B18569304 /* Pods */ = {
@@ -173,7 +186,7 @@
 			files = (
 				80BD13632720136C000832DB /* Preview Assets.xcassets in Resources */,
 				80BD13602720136C000832DB /* Assets.xcassets in Resources */,
-				80FE502427204D8B00BDDCE8 /* mapStyleNight.json in Resources */,
+				80FE502427204D8B00BDDCE8 /* mapStyle.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +241,7 @@
 			files = (
 				802076C327203E9500C90822 /* AppDelegate.swift in Sources */,
 				802076C527203F9200C90822 /* GoogleMapsView.swift in Sources */,
+				80FE50272720748100BDDCE8 /* LocationManager.swift in Sources */,
 				80BD13A52720253E000832DB /* Cons.swift in Sources */,
 				80BD135E27201369000832DB /* ContentView.swift in Sources */,
 				80BD135C27201369000832DB /* GoogleMapsSDKApp.swift in Sources */,
@@ -365,6 +379,8 @@
 				DEVELOPMENT_TEAM = 879U287R5Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoogleMapsSDK/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Дай добро! Покажу где ты ))))";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -396,6 +412,8 @@
 				DEVELOPMENT_TEAM = 879U287R5Q;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = GoogleMapsSDK/Info.plist;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Дай добро! Покажу где ты ))))";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
